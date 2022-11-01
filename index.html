@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1 z 10 Dzwięki</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10%;
+            min-height: 100vh;
+            background-color: rgb( 70 70 70 );
+        }
+        button {
+            --dark-color: rgb( 20 20 20 );
+            --light-color: rgb( 200 200 200 );
+            color: var(--light-color);
+            width: 25rem;
+            font-size: 10rem;
+            font-weight: bold;
+            aspect-ratio: 1;
+            border-radius: 30%;
+            border: .5rem solid var(--light-color);
+            background-color: var(--dark-color);
+            transition: 50ms;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        button:active {
+            box-shadow: 0 0 5rem 0 var(--light-color) inset;
+        }
+        #good {
+            --dark-color: darkgreen;
+            --light-color: lime;
+        }
+        #bad {
+            --dark-color: darkred;
+            --light-color: red;
+        }
+    </style>
+    <script>
+        function play(sound){
+            switch (sound){
+                case 'good': new Audio('sounds/good.mp3').play()
+                break
+                case 'bad': new Audio('sounds/bad.mp3').play()
+                break
+            }
+        }
+    </script>
+</head>
+<body>
+    <button id="good" onclick="play('good')">✓</button>
+    <button id="bad" onclick="play('bad')">✗</button>
+</body>
+</html>
